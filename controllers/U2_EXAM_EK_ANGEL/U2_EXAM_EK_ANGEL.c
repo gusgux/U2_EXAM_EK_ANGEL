@@ -21,8 +21,8 @@
  /*
   * You may want to add macros here.
   */
- #define TIME_STEP 80
- #define VELOCITY -2
+ #define TIME_STEP 64
+ #define VELOCITY 0
  #define VMAX -40
  #define VLOW -1.3333
  #define PI 3.141592
@@ -45,6 +45,7 @@
    wb_keyboard_enable(TIME_STEP);
 
    /**WHEEL VARIABLES*/
+
     double ds_value;
     double encoder1_value;
     double encoder2_value;
@@ -57,15 +58,15 @@
     //motor devices
     WbDeviceTag wheel_right = wb_robot_get_device("motor_right");
     WbDeviceTag wheel_left = wb_robot_get_device("motor_left");
+    WbDeviceTag encoder_1 = wb_robot_get_device("encoder1");
+    WbDeviceTag encoder_2 = wb_robot_get_device("encoder2");
+
 
     wb_motor_set_position(wheel_right,INFINITY);
     wb_motor_set_position(wheel_left,INFINITY);
     //sensor devices
     WbDeviceTag dist_sensor= wb_robot_get_device("distance_sensor");
     wb_distance_sensor_enable(dist_sensor,TIME_STEP);
-
-    WbDeviceTag encoder_1 = wb_robot_get_device("encoder1");
-    WbDeviceTag encoder_2 = wb_robot_get_device("encoder2");
     wb_position_sensor_enable(encoder_1,TIME_STEP);
     wb_position_sensor_enable(encoder_2,TIME_STEP);
 
@@ -87,14 +88,14 @@
 
       ds_value=wb_distance_sensor_get_value(dist_sensor);
       encoder1_value=wb_position_sensor_get_value(encoder_1);
+
       encoder2_value=wb_position_sensor_get_value(encoder_2);
      // printf("Distance sensor:%lf\n",ds_value);
       encoder1_value=(encoder1_value/(2*PI))*0.15*PI;
       encoder2_value=(encoder2_value/(2*PI))*0.15*PI;
 
-      printf("lineal velocity for wheel left:%lf\n",encoder1_value);
-      printf("lineal velocity for wheel right:%lf \n",encoder2_value);
-
+      //rintf("lineal velocity for wheel right:%lf \n",encoder2_value);
+      //printf("lineal velocity for wheel left:%lf\n",encoder1_value);
 
 
 
@@ -126,8 +127,8 @@
          }
          break;
          case WB_KEYBOARD_DOWN:{
-           L_key=VLOW;
-           R_key=VLOW;
+           L_key=-VLOW;
+           R_key=-VLOW;
            x=0;
            y=1;
 
