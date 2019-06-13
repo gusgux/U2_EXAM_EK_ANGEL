@@ -90,9 +90,9 @@
       encoder1_value=wb_position_sensor_get_value(encoder_1);
 
       encoder2_value=wb_position_sensor_get_value(encoder_2);
-     // printf("Distance sensor:%lf\n",ds_value);
+      printf("Distance sensor:%lf\n",ds_value);
       encoder1_value=(encoder1_value/(2*PI))*0.15*PI;
-      encoder2_value=(encoder2_value/(2*PI))*0.15*PI;
+      encoder2_value=((encoder2_value/(2*PI))*0.15*PI);
 
       //rintf("lineal velocity for wheel right:%lf \n",encoder2_value);
       //printf("lineal velocity for wheel left:%lf\n",encoder1_value);

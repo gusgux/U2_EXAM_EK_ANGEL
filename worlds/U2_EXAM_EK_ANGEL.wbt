@@ -60,8 +60,8 @@ Robot {
         }
       ]
       endPoint DEF WHEEL_1 Solid {
-        translation -0.05 0 0.06
-        rotation 0.40779432835262774 0.6453835623758893 -0.6458977033388769 3.9165647108573847
+        translation -0.05000008432983612 3.9089878095312815e-08 0.06000000000021257
+        rotation 0.4440091992866374 0.6333310728044619 -0.6338356121023719 3.9779051475360108
         children [
           DEF SHAPE_WHEEL Shape {
             appearance PBRAppearance {
@@ -96,8 +96,8 @@ Robot {
         }
       ]
       endPoint Solid {
-        translation -0.05 0 -0.06
-        rotation 1 0 0 1.57
+        translation -0.050000089586875386 4.152674855206924e-08 -0.05999999999977283
+        rotation 0.9977058705291914 -0.047850529319327345 -0.04788864954713782 1.5722967645287678
         children [
           USE SHAPE_WHEEL
         ]
@@ -114,6 +114,7 @@ Robot {
         0 0 0
         0.03 1000 0
       ]
+      type "sonar"
       aperture 0.5235
       resolution 1
     }
@@ -124,7 +125,7 @@ Robot {
   controller "U2_EXAM_EK_ANGEL"
 }
 Solid {
-  translation 22 0 0
+  translation 2 0 0
   children [
     DEF G_BOX_OB Shape {
       appearance PBRAppearance {
